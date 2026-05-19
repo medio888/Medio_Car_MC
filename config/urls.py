@@ -20,11 +20,20 @@ from django.shortcuts import redirect
 from rest_framework.routers import DefaultRouter
 
 from main.views import CategoryViewSet, SubcategoryViewSet
+from cars.views import BrandViewSet, CarModelViewSet, CompleteSetViewSet, CarViewSet
 
 
 router = DefaultRouter()
+
+# MAIN
 router.register(r'categories', CategoryViewSet)
 router.register(r'subcategories', SubcategoryViewSet)
+
+# CARS
+router.register(r'brands', BrandViewSet)
+router.register(r'models', CarModelViewSet)
+router.register(r'complete-sets', CompleteSetViewSet)
+router.register(r'cars', CarViewSet)
 
 
 def home_redirect(request):
