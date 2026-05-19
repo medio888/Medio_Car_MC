@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'test_drive',
     'dealer',
     'order_car',
+    'services',
+    'molar_work',
+    'insurance',
 ]
 
 MIDDLEWARE = [
