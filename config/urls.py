@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
+
 from rest_framework.routers import DefaultRouter
 
 from main.views import CategoryViewSet, SubcategoryViewSet
 from cars.views import BrandViewSet, CarModelViewSet, CompleteSetViewSet, CarViewSet
+from users.views import AuthViewSet, UserViewSet
 
 
 router = DefaultRouter()
@@ -31,9 +33,13 @@ router.register(r'subcategories', SubcategoryViewSet)
 
 # CARS
 router.register(r'brands', BrandViewSet)
-router.register(r'models', CarModelViewSet)
+router.register(r'car-models', CarModelViewSet)
 router.register(r'complete-sets', CompleteSetViewSet)
 router.register(r'cars', CarViewSet)
+
+# USERS
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'auth', AuthViewSet, basename='auth')
 
 
 def home_redirect(request):
