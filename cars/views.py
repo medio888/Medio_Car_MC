@@ -1,5 +1,12 @@
 from rest_framework import viewsets
-from .models import Brand, CarModel, CompleteSet, Car
+
+from .models import (
+    Brand,
+    CarModel,
+    CompleteSet,
+    Car
+)
+
 from .serializers import (
     BrandSerializer,
     CarModelSerializer,
@@ -25,9 +32,12 @@ class CompleteSetViewSet(viewsets.ModelViewSet):
 
 
 class CarViewSet(viewsets.ModelViewSet):
+
     queryset = Car.objects.all()
 
     def get_serializer_class(self):
+
         if self.action in ["create", "update", "partial_update"]:
             return CarCreateSerializer
+
         return CarListSerializer
